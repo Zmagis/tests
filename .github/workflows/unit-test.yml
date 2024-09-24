@@ -1,6 +1,5 @@
 name: Unit Tests
 
-
 on:
   push:
     branches: [main]
@@ -17,3 +16,5 @@ jobs:
         uses: actions/setup-node@v3
       - run: npm ci
       - run: npm test
+      - name: Build App
+        run: npm run build
