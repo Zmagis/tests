@@ -11,27 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout and Setup
-        uses: ./actions/checkout-and-setup
+      - uses: ./.github/workflows/setup-node.yml
       - run: npm test
 
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout and Setup
-        uses: ./.github/workflows/actions/checkout-and-setup
+      - uses: ./.github/workflows/setup-node.yml
       - name: Build App
         run: npm run build
   coverage:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout and Setup
-        uses: ./.github/workflows/actions/checkout-and-setup
-      - run: npm test -- --coverage
-      - uses: actions/upload-artifact@v3
-        name: Archive coverage report
-        with:
-          name: coverage-report
-          path: coverage
+      - uses: ./.github/workflows/setup-node.yml
+      - run: npm test --coverage
