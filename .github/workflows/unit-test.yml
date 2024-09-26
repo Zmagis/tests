@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout and Setup
-        uses: ./.github/actions/checkout-and-setup
+        uses: ./.github/workflows/actions/checkout-and-setup
       - run: npm test
 
   build:
@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout and Setup
-        uses: ./.github/actions/checkout-and-setup
+        uses: ./.github/workflows/actions/checkout-and-setup
       - name: Build App
         run: npm run build
   coverage:
@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Checkout and Setup
-        uses: ./.github/actions/checkout-and-setup
+        uses: ./.github/workflows/actions/checkout-and-setup
       - run: npm test -- --coverage
       - uses: actions/upload-artifact@v3
         name: Archive coverage report
