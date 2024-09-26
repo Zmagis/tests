@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout and Setup
-        uses: ./.github/workflows/actions/checkout-and-setup
+        uses: ./actions/checkout-and-setup
       - run: npm test
 
   build:
